@@ -10,13 +10,13 @@ public:
 	String();
 	
 	//Custom constructor of string.
-	String(char name);
+	String(char* name);
 	
-	//Argument      : The integer length will be assigned the value of the length of the string.
-	//Description   : Looks at the length of the string is in an integer format.
+	//Argument      : None.
+	//Description   : Looks at the length of the string and puts it in an integer format.
 	//Precondition  : takes in the argument length to determine the length of the string.
 	//Postcondition : returns the value of length as the length of the string.
-	int StringLength(int length);
+	int StringLength();
 	
 	//Argument      : The integer iter will be assigned the value of the index.
 	//Description   : Accesses a specific character from a specific indx in the string.
@@ -25,10 +25,10 @@ public:
 	char IndexAccess(int iter);
 
 	//Argument      : None.
-	//Description   : Compares two string to see whether or not the are the same.
+	//Description   : Compares two string to see whether or not they are the same.
 	//Precondition  : Assumes that the two strings are not the same, meaning false.
 	//Postcondition : After evaluation will return true or false based on the comnparison of the strings.
-	bool CompareString();
+	bool operator == (String & other);
 
 	//Argument      : None.
 	//Description   : Adds one string to the end of another.
@@ -67,17 +67,22 @@ public:
 	String WordSearch();
 
 	//Argument      : None.
-	//Description   : The ability to replace a sub-string found within the string with a different sub-string.
-	//Precondition  : The string is in its natural generated form.
-	//Postcondition : Part of the string has been replaced with another string.
+	//Description   : The ability to find a string from a particular starting index.
+	//Precondition  : The array is in its naturally generated form.
+	//Postcondition : Part of the string has been replaced by another small copy of the string.
 	String SpecificWordSearch();
 
 	//Argument      : None.
-	//Description   : Replaces a string in the string with another string.
-	//Precondition  : The string is 
-	//Postcondition : 
+	//Description   : The ability to replace a sub-string found within the string with a different sub-string.
+	//Precondition  : The string is in its natural generated form.
+	//Postcondition : Part of the string has been replaced with another string.
 	char ReplaceSubString();
 
+	//Argument      : None.
+	//Description   : The ability to set the string to an input C-style string.
+	//Precondition  : 
+	//Postcondition : 
+	char CStyleInput();
 
 
 };
