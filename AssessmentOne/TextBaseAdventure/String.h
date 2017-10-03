@@ -24,7 +24,7 @@ public:
 	//Postcondition : Will return the character located in the specific index inputed(?) by the user.
 	char IndexAccess(int iter);
 
-	//Argument      : None.
+	//Argument      : Passes in the characters of the two strings being compared.
 	//Description   : Compares two string to see whether or not they are the same.
 	//Precondition  : Assumes that the two strings are not the same, meaning false.
 	//Postcondition : After evaluation will return true or false based on the comnparison of the strings.
@@ -34,25 +34,25 @@ public:
 	//Description   : Adds one string to the end of another.
 	//Precondition  : Adds two strings together into one.
 	//Postcondition : Returns the one string of the two that were added together.
-	char AppendStrings();
+	String operator +(String & other);
 
 	//Argument      : None.
 	//Description   : Adds one string to the beginning of another.
 	//Precondition  : Two strings are seperate from eachother.
 	//Postcondition : One string is added to the front of another to make one string.
-	char PrependString();
+	String PrependString();
 
 	//Argument      : None.
 	//Description   : Returns the value of the string in a constant character pointer (const char*)
 	//Precondition  : The string is a (const char*).
 	//Postcondition : The string is still (const char*).
-	char CStyleString();
+	const char* CStyleString();
 
 	//Argument      : None.
 	//Description   : Makes all of the characters in the string lower case.
 	//Precondition  : Characters in the array may be lower or upper case.
 	//Postcondition : All characters in the string are now lower case.
-	char LowerCaseCopy();
+	String LowerCaseCopy();
 
 	//Argument      : None.
 	//Description   : Makes all characters in the string upper case.
