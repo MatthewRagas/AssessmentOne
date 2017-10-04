@@ -20,6 +20,10 @@ int main()
 	String bob = stringArray->LowerCaseCopy();
 	String BOB = stringArray->UpperCaseCopy();
 	const char* billy = coolio->CStyleString();
+	String* append = &String(*coolio + *test);
+	String dumb = test->AppendString(*stringArray);
+	String notDumb = test->PrependString(*stringArray);
+	
 	
 
 

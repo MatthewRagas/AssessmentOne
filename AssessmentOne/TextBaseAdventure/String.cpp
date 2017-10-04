@@ -43,11 +43,37 @@ bool String::operator ==(String & other)
 	return true;
 }
 
-String String::operator +(String & other)
+String String::AppendString(String rhs)
 {
 	
+	return (*this + rhs);
+}
 
-	return 0;
+String String::PrependString(String rhs)
+{
+	return (rhs + *this);
+}
+
+//---String is (lhs) ---other is (rhs) of the "+" operator.
+String String::operator +(String & other)
+{
+	char* append = new char[255];
+	int i = 0;
+	while (i < StringLength())
+	{
+		append[i] = mStringArray[i];
+		i++;
+	}
+	int n = 0;
+	while (n < other.StringLength())
+	{
+		append[i] = other.mStringArray[n];
+		n++;
+		i++;
+	}
+	append[i] = '\0';
+
+	return String(append);
 }
 	
 const char* String::CStyleString()
@@ -89,5 +115,10 @@ String String::LowerCaseCopy()
 		upper[StringLength()] = '\0';
 
 		return String(upper);
+	}
+
+	String String::SpecificWordSearch()
+	{
+		return String();
 	}
 

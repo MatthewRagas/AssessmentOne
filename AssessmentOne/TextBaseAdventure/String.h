@@ -30,17 +30,23 @@ public:
 	//Postcondition : After evaluation will return true or false based on the comnparison of the strings.
 	bool operator == (String & other);
 
-	//Argument      : None.
+	//Arguments     : String and other.String
+	//Description   : Adds two strings together in the order of input.
+	//Precondition  : Puts in 2 seperate strings.
+	//Postcondition : Strings combined together to form one string.
+	String operator +(String & other);
+
+	//Argument      : 
 	//Description   : Adds one string to the end of another.
 	//Precondition  : Adds two strings together into one.
 	//Postcondition : Returns the one string of the two that were added together.
-	String operator +(String & other);
+	String AppendString(String rhs);
 
 	//Argument      : None.
 	//Description   : Adds one string to the beginning of another.
 	//Precondition  : Two strings are seperate from eachother.
 	//Postcondition : One string is added to the front of another to make one string.
-	String PrependString();
+	String PrependString(String rhs);
 
 	//Argument      : None.
 	//Description   : Returns the value of the string in a constant character pointer (const char*)
