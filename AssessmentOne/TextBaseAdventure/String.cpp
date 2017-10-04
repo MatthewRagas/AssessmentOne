@@ -20,6 +20,12 @@ int String::StringLength()
 	return i;
 }
 
+char String::IndexAccess(int iter)
+{
+	
+	return mStringArray[iter];
+}
+
 bool String::operator ==(String & other)
 {
 	//Calling in the Length function as it is automatically uses
@@ -115,6 +121,33 @@ String String::LowerCaseCopy()
 		upper[StringLength()] = '\0';
 
 		return String(upper);
+	}
+
+	bool String::WordSearch(String subString)
+	{
+		int index = 0;
+		int index2;
+		for (int i = 0; index < subString.StringLength(); i++)
+		{
+			if ((mStringArray[i] == subString.mStringArray[index]) && (mStringArray[i++] == subString.mStringArray[index++]))
+			{
+				index++;
+			}
+			else if ((mStringArray[i] == subString.mStringArray[index]) && (mStringArray[i++] != subString.mStringArray[index++]))
+			{
+				continue;
+			}
+			else if (i == '\0' && index != '\0')
+			{
+				break;
+			}
+			index2 = i;
+		}
+		if (subString.mStringArray[index] == '\0')
+		{
+			return true;
+		}
+		return false;
 	}
 
 	String String::SpecificWordSearch()

@@ -23,8 +23,16 @@ int main()
 	String* append = &String(*coolio + *test);
 	String dumb = test->AppendString(*stringArray);
 	String notDumb = test->PrependString(*stringArray);
-	
-	
+	char m = stringArray->IndexAccess(0);
+	char a = stringArray->IndexAccess(1);
+	char t = stringArray->IndexAccess(2);
+	char t2 = stringArray->IndexAccess(3);
+	char h = stringArray->IndexAccess(4);
+	char e = stringArray->IndexAccess(5);
+	char w = stringArray->IndexAccess(6);
+	char space = coolio->IndexAccess(6);
+	char g = coolio->IndexAccess(0);
+	bool subString = test->WordSearch("tw");
 
 
 	system("pause");
