@@ -127,26 +127,39 @@ String String::LowerCaseCopy()
 	{
 		int index = 0;
 		int index2;
-		for (int i = 0; index < subString.StringLength(); i++)
+		int iter = 0;
+		int i = 0;
+		while (iter < this->StringLength())
 		{
-			if ((mStringArray[i] == subString.mStringArray[index]) && (mStringArray[i++] == subString.mStringArray[index++]))
+			for (i; index < subString.StringLength(); i++)
 			{
-				index++;
+				if (mStringArray[i] == subString.mStringArray[index])
+				{
+					index++;
+					index2 = i + 1;
+					break;
+				}
 			}
-			else if ((mStringArray[i] == subString.mStringArray[index]) && (mStringArray[i++] != subString.mStringArray[index++]))
+			for (index2; index < subString.StringLength(); index2++)
 			{
-				continue;
+				if (mStringArray[index2] == subString.mStringArray[index])
+				{
+					index++;
+				}
+				else if (mStringArray[index2] != subString.mStringArray[index])
+				{
+					break;
+				}
 			}
-			else if (i == '\0' && index != '\0')
-			{
-				break;
-			}
-			index2 = i;
+			
+			iter++;
+			i = index2 + 1;
 		}
 		if (subString.mStringArray[index] == '\0')
 		{
 			return true;
 		}
+		
 		return false;
 	}
 
