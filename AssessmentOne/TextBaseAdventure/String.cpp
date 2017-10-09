@@ -157,8 +157,47 @@ String String::LowerCaseCopy()
 		return false;
 	}
 
-	String String::SpecificWordSearch()
+	String String::ReplaceSubString(String replaceString,String subString, int index)
 	{
-		return String();
+		int n = 0;
+		for (int i = index; mStringArray[i] != '\0'; i++)
+		{
+			if (replaceString.mStringArray[n] == mStringArray[i])
+			{
+				n++;
+				for (int iter = i + 1; mStringArray[iter] != '\0'; iter++)
+				{
+					if (replaceString.mStringArray[n] == '\0')
+					{
+						
+					}
+					else if (mStringArray[iter] == replaceString.mStringArray[n])
+					{
+						int ind = iter;
+						replaceString[n] = 
+						n++;
+						continue;
+					}
+					else if (mStringArray[iter] != replaceString.mStringArray[n])
+					{
+						n = 0;
+						i = iter - 1;
+						break;
+					}
+				}
+
+			}
+		}
+		String newString;
+
+		return String(newString);
+	}
+
+	std::istream& operator >> (std::istream& is, String & mStringArray)
+	{
+		char* something = new char[255];
+		is >> something;
+		mStringArray = something;
+		return is;
 	}
 

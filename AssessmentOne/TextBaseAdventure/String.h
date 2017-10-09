@@ -1,5 +1,5 @@
 #pragma once
-
+#include <iostream>
 class String
 {
 	const char* mStringArray;
@@ -73,22 +73,16 @@ public:
 	bool WordSearch(String subString, int index);
 
 	//Argument      : None.
-	//Description   : The ability to find a string from a particular starting index.
-	//Precondition  : The array is in its naturally generated form.
-	//Postcondition : Part of the string has been replaced by another small copy of the string.
-	String SpecificWordSearch();
-
-	//Argument      : None.
 	//Description   : The ability to replace a sub-string found within the string with a different sub-string.
 	//Precondition  : The string is in its natural generated form.
 	//Postcondition : Part of the string has been replaced with another string.
-	char ReplaceSubString();
+	String ReplaceSubString(String replaceString,String subString, int index);
 
 	//Argument      : None.
 	//Description   : The ability to set the string to an input C-style string.
 	//Precondition  : 
 	//Postcondition : 
-	char CStyleInput();
+	friend std::istream& operator >> (std::istream& is, String &mStringArray);
 
 
 };
