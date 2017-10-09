@@ -70,7 +70,7 @@ public:
 	//Description   : Used to find a sub-string within the string class.
 	//Precondition  : The string is one long line of characters.
 	//Postcondition : There are two strings, one deriving from the original string
-	bool WordSearch(String subString);
+	bool WordSearch(String subString, int index);
 
 	//Argument      : None.
 	//Description   : The ability to find a string from a particular starting index.

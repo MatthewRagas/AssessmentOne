@@ -1,5 +1,6 @@
 #include<iostream>
 #include"String.h"
+#include"assert.h"
 
 
 int main()
@@ -10,6 +11,10 @@ int main()
 	String* bro = &String("Gnarly Dude");
 	String* test2;
 	String* test3;
+	assert(stringArray->StringLength() == 20);
+	assert(coolio->IndexAccess(0) == 'G');
+	assert((stringArray == coolio) == false);
+	assert(&String(*coolio + *test) == );
 	int length = stringArray->StringLength();
 	int customLength = coolio->StringLength();
 	int testLength = test->StringLength();
@@ -32,7 +37,7 @@ int main()
 	char w = stringArray->IndexAccess(6);
 	char space = coolio->IndexAccess(6);
 	char g = coolio->IndexAccess(0);
-	bool subString = test->WordSearch("tw");
+	bool subString = test->WordSearch("the", 0);
 
 
 	system("pause");

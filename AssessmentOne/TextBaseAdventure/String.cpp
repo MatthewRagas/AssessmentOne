@@ -49,17 +49,6 @@ bool String::operator ==(String & other)
 	return true;
 }
 
-String String::AppendString(String rhs)
-{
-	
-	return (*this + rhs);
-}
-
-String String::PrependString(String rhs)
-{
-	return (rhs + *this);
-}
-
 //---String is (lhs) ---other is (rhs) of the "+" operator.
 String String::operator +(String & other)
 {
@@ -81,6 +70,19 @@ String String::operator +(String & other)
 
 	return String(append);
 }
+
+String String::AppendString(String rhs)
+{
+	
+	return (*this + rhs);
+}
+
+String String::PrependString(String rhs)
+{
+	return (rhs + *this);
+}
+
+
 	
 const char* String::CStyleString()
 {
@@ -123,43 +125,35 @@ String String::LowerCaseCopy()
 		return String(upper);
 	}
 
-	bool String::WordSearch(String subString)
+	bool String::WordSearch(String subString, int index)
 	{
-		int index = 0;
-		int index2;
-		int iter = 0;
-		int i = 0;
-		while (iter < this->StringLength())
+		int n = 0;
+		for (int i = index; mStringArray[i] != '\0'; i++)
 		{
-			for (i; index < subString.StringLength(); i++)
+			if (subString.mStringArray[n] == mStringArray[i])
 			{
-				if (mStringArray[i] == subString.mStringArray[index])
+				n++;
+				for (int iter = i + 1; mStringArray[iter] != '\0'; iter++)
 				{
-					index++;
-					index2 = i + 1;
-					break;
+					if (subString.mStringArray[n] == '\0')
+					{
+						return true;
+					}
+					else if (mStringArray[iter] == subString.mStringArray[n])
+					{
+						n++;
+						continue;
+					}
+					else if (mStringArray[iter] != subString.mStringArray[n])
+					{
+						n = 0;
+						i = iter - 1;
+						break;
+					}
 				}
+
 			}
-			for (index2; index < subString.StringLength(); index2++)
-			{
-				if (mStringArray[index2] == subString.mStringArray[index])
-				{
-					index++;
-				}
-				else if (mStringArray[index2] != subString.mStringArray[index])
-				{
-					break;
-				}
-			}
-			
-			iter++;
-			i = index2 + 1;
 		}
-		if (subString.mStringArray[index] == '\0')
-		{
-			return true;
-		}
-		
 		return false;
 	}
 
