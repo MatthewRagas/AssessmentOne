@@ -157,7 +157,7 @@ String String::LowerCaseCopy()
 		return false;
 	}
 
-	String String::ReplaceSubString(String replaceString,String subString, int index)
+	/*String String::ReplaceSubString(String replaceString,String subString, int index)
 	{
 		int n = 0;
 		for (int i = index; mStringArray[i] != '\0'; i++)
@@ -191,7 +191,7 @@ String String::LowerCaseCopy()
 		String newString;
 
 		return String(newString);
-	}
+	}*/
 
 	std::istream& operator >> (std::istream& is, String & mStringArray)
 	{
