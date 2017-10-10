@@ -110,6 +110,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\TextBaseAdventure\String.cpp" />
+    <ClCompile Include="Dungeon.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Point2D.cpp" />
+    <ClCompile Include="PittyWumpus.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\TextBaseAdventure\String.h" />
+    <ClInclude Include="Dungeon.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Point2D.h" />
+    <ClInclude Include="PittyWumpus.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
