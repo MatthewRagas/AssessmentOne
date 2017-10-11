@@ -3,7 +3,8 @@
 
 Point2D::Point2D()
 {
-
+	mX = 4;
+	mY = 2;
 }
 
 Point2D::Point2D(float x, float y)
@@ -26,14 +27,6 @@ Point2D Point2D::operator-(const Point2D & other)
 	temp.mX = mX - other.mX;
 	temp.mY = mY - other.mY;
 	return temp;
-}
-
-bool Point2D::operator ==(const Point2D & other)
-{
-	Point2D temp;
-	if (temp.mX == other.mX && temp.mY == other.mY)
-		return true;
-	return false;
 }
 
 Point2D Point2D::operator*(float other)

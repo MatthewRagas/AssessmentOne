@@ -15,7 +15,7 @@ Player::Player(char * name, bool gender)
 	mLives = 3;
 	*mName = name;
 	mGender = gender;
-	mPos = new Point2D(0,0);
+	mPos = new Point2D(6,0);
 }
 
 void Player::MovePlayer(char direction)
