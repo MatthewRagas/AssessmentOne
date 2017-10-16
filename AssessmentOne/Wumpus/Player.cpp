@@ -21,9 +21,9 @@ Player::Player(char * name, bool gender)
 void Player::MovePlayer(char direction)
 {
 	if (direction == 'w')
-		*mPos = *mPos + Point2D(0, 1);
-	else if (direction == 's')
 		*mPos = *mPos + Point2D(0, -1);
+	else if (direction == 's')
+		*mPos = *mPos + Point2D(0, 1);
 	else if (direction == 'a')
 		*mPos = *mPos + Point2D(-1, 0);
 	else if (direction == 'd')
@@ -32,8 +32,7 @@ void Player::MovePlayer(char direction)
 
 void Player::SetPosition(float x, float y)
 {
-	
-
+	mPos = new Point2D(x, y);
 }
 
 Point2D Player::GetPosition()
@@ -41,8 +40,3 @@ Point2D Player::GetPosition()
 	return *mPos;
 }
 
-int Player::DecreaseLives()
-{
-	mLives -= 1;
-	return mLives;
-}

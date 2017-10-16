@@ -14,5 +14,4 @@ public:
 	void MovePlayer(char direction);
 	void SetPosition(float x, float y);
 	Point2D GetPosition();
-	int DecreaseLives();
 };
