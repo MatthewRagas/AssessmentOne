@@ -7,9 +7,11 @@
 
 int main()
 {
-	Player* billy = new Player("Matthew", true);
-	Point2D* rooms = new Point2D(2, 5);
-	Dungeon cave(5, 5, billy, rooms);
+	Player* billy = new Player();
+	Point2D* rooms = new Point2D();
+	Dungeon cave(9,9, billy);
+	Point2D* bill = new Point2D(billy->GetPosition());
+	
 
 	system("pause");
 }
