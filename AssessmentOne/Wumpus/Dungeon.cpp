@@ -40,14 +40,13 @@ Dungeon::Dungeon(int rows, int cols, Player* player)
 
 bool Dungeon::CheckPlayerPosition()
 {
-	if (mPlayer->GetPosition().GetX() >= 0 && mPlayer->GetPosition().GetX() < this->mNumRows &&
-		mPlayer->GetPosition().GetY() >= 0 && mPlayer->GetPosition().GetY() < this->mNumCols)
+	if (mPlayer->GetPosition().GetX() >= 0 && mPlayer->GetPosition().GetX() < mNumRows &&
+		mPlayer->GetPosition().GetY() >= 0 && mPlayer->GetPosition().GetY() < mNumCols)
 	{
 		return true;
 	}
 	else
 	{
-		mPlayer->DecreaseLives();
 		mPlayer->SetPosition(0,0);
 	}
 	return false;

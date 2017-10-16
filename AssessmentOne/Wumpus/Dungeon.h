@@ -10,11 +10,11 @@ class Dungeon
 	PittyWumpus mDeath;
 	int mNumCols;
 	int mNumRows;
-	void GenRooms();//makes the rooms.
+	
 	
 
 public:
-	
+	void GenRooms();//makes the rooms.
 	Dungeon();
 	Dungeon(int rows, int cols, Player* player);
 	bool CheckPlayerPosition();
