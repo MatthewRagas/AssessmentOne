@@ -30,7 +30,19 @@ void Player::MovePlayer(char direction)
 		*mPos = *mPos + Point2D(1, 0);
 }
 
-void Player::SetPosition(Point2D * pos)
+void Player::SetPosition(float x, float y)
 {
-	mPos = pos;
+	
+
+}
+
+Point2D Player::GetPosition()
+{
+	return *mPos;
+}
+
+int Player::DecreaseLives()
+{
+	mLives -= 1;
+	return mLives;
 }

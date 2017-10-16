@@ -12,5 +12,7 @@ public:
 	Player();
 	Player(char* name, bool gender);
 	void MovePlayer(char direction);
-	void SetPosition(Point2D* pos);
+	void SetPosition(float x, float y);
+	Point2D GetPosition();
+	int DecreaseLives();
 };
