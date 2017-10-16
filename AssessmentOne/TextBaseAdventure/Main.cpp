@@ -1,5 +1,5 @@
 #include<iostream>
-#include"String.h"
+#include"MyString.h"
 #include"assert.h"
 #include<fstream>
 using namespace std;
@@ -9,24 +9,24 @@ int main()
 {
 	fstream successFile;
 	successFile.open("successFile.txt", ios_base::out | ios_base::app);
-	String* stringArray = &String("Matthew Fawkin Ragas");
-	String* coolio = &String("Gnarly Dude");
-	String* test = &String("Matthew Ragas");
+	MyString* stringArray = &MyString("Matthew Fawkin Ragas");
+	MyString* coolio = &MyString("Gnarly Dude");
+	MyString* test = &MyString("Matthew Ragas");
 
-	assert (stringArray->StringLength() == 20);
+	assert (stringArray->MyStringLength() == 20);
 	assert(coolio->IndexAccess(0) == 'G');
 	assert((stringArray == coolio) == false);
-	assert(*coolio + *test == String("Gnarly DudeMatthew Ragas"));
-	assert(test->AppendString(*stringArray) == String("Matthew RagasMatthew Fawkin Ragas"));
-	assert(test->PrependString(*stringArray) == String("Matthew Fawkin RagasMatthew Ragas"));
-	assert(coolio->CStyleString() == "Gnarly Dude");
-	assert(stringArray->LowerCaseCopy() == String("matthew fawkin ragas"));
-	assert(stringArray->UpperCaseCopy() == String("MATTHEW FAWKIN RAGAS"));
+	assert(*coolio + *test == MyString("Gnarly DudeMatthew Ragas"));
+	assert(test->AppendMyString(*stringArray) == MyString("Matthew RagasMatthew Fawkin Ragas"));
+	assert(test->PrependMyString(*stringArray) == MyString("Matthew Fawkin RagasMatthew Ragas"));
+	assert(coolio->CStyleMyString() == "Gnarly Dude");
+	assert(stringArray->LowerCaseCopy() == MyString("matthew fawkin ragas"));
+	assert(stringArray->UpperCaseCopy() == MyString("MATTHEW FAWKIN RAGAS"));
 	assert(test->WordSearch("the", 0) == true);
 	
 	if (successFile.is_open())
 	{
-		int test0Length = stringArray->StringLength();
+		int test0Length = stringArray->MyStringLength();
 		if (test0Length == 20)
 			successFile << "Test Length: Successfull!\n";
 		else
@@ -36,27 +36,27 @@ int main()
 			successFile << "Test Compare: successfull!\n";
 		else
 			cout << "There has been an error. Test failed...\n";
-		String test2Append = test->AppendString(*stringArray);
-		if (test2Append == String("Matthew RagasMatthew Fawkin Ragas"))
+		MyString test2Append = test->AppendMyString(*stringArray);
+		if (test2Append == MyString("Matthew RagasMatthew Fawkin Ragas"))
 			successFile << "Test Append: Successfull!\n";
 		else
 			cout<<"There has been an error. Test failed...\n";
-		String test3Prepend = test->PrependString(*stringArray);
-		if (test3Prepend == String("Matthew Fawkin RagasMatthew Ragas"))
+		MyString test3Prepend = test->PrependMyString(*stringArray);
+		if (test3Prepend == MyString("Matthew Fawkin RagasMatthew Ragas"))
 			successFile << "Test Prepend: Successfull!\n";
 		else
 			cout << "There has been an error. Test failed...\n";
-		String test4Lower = stringArray->LowerCaseCopy();
-		if (test4Lower == String("matthew fawkin ragas"))
+		MyString test4Lower = stringArray->LowerCaseCopy();
+		if (test4Lower == MyString("matthew fawkin ragas"))
 			successFile << "Test Lower Case: Successfull!\n";
 		else
 			cout << "There has been an error. Test Failed...\n";
-		String test5Upper = stringArray->UpperCaseCopy();
-		if (test5Upper == String("MATTHEW FAWKIN RAGAS"))
+		MyString test5Upper = stringArray->UpperCaseCopy();
+		if (test5Upper == MyString("MATTHEW FAWKIN RAGAS"))
 			successFile << "Test Upper Case: Successfull!\n";
 		else
 			cout << "There has been an error. Test failed...\n";
-		const char* test6CStyle = coolio->CStyleString();
+		const char* test6CStyle = coolio->CStyleMyString();
 		if (test6CStyle == "Gnarly Dude")
 			successFile << "Test C-Style: Successfull!\n";
 		else
@@ -66,13 +66,13 @@ int main()
 			successFile << "Test Get Index: Successfull!\n";
 		else
 			cout << "There has been an error. Test failed...\n";
-		bool subString = test->WordSearch("the", 0);
-		if (subString == true)
-			successFile << "Test SubString: Successfull!\n";
+		bool subMyString = test->WordSearch("the", 0);
+		if (subMyString == true)
+			successFile << "Test SubMyString: Successfull!\n";
 		else
 			cout << "There has been an error. Test failed...\n";
 	}
-	String person;
+	MyString person;
 	std::cin >> person;
 
 	system("pause");
