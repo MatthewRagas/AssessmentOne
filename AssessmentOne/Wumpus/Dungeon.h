@@ -5,19 +5,18 @@
 
 class Dungeon
 {
-	char grid[5][5];
 	Point2D* mRooms;
 	Player* mPlayer;
 	PittyWumpus mDeath;
 	int mNumCols;
 	int mNumRows;
-
+	void GenRooms();//makes the rooms.
 	
 
 public:
-	void GenRooms();//makes the rooms.
+	
 	Dungeon();
-	Dungeon(int rows, int cols, Player* player, Point2D* rooms);
+	Dungeon(int rows, int cols, Player* player);
 	bool CheckPlayerPosition();
 	void PrintRooms();
 	friend std::ostream& operator << (std::ostream& is, Point2D &point);

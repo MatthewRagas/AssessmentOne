@@ -13,9 +13,10 @@ void Dungeon::GenRooms()
 		for (int n = 0; n < mNumRows; n++)
 		{
 			mRooms[index] = Point2D(n, i);
-			std::cout << mRooms[index] << std::endl;
+			std::cout << mRooms[index];
 			index++;
 		}
+		std::cout << std::endl;
 	}
 }
 
@@ -25,20 +26,31 @@ Dungeon::Dungeon()
 	mPlayer = new Player();
 	mNumCols = 5;
 	mNumRows = 5;
+	GenRooms();
 }
 
-Dungeon::Dungeon(int rows, int cols, Player* player, Point2D* rooms)
+Dungeon::Dungeon(int rows, int cols, Player* player)
 {
-	mRooms = rooms;
+	mRooms = new Point2D[cols * rows];
 	mNumCols = cols;
 	mNumRows = rows;
 	mPlayer = player;
+	GenRooms();
 }
 
 bool Dungeon::CheckPlayerPosition()
 {
-	
-	return true;
+	if (mPlayer->GetPosition().GetX() >= 0 && mPlayer->GetPosition().GetX() < this->mNumRows &&
+		mPlayer->GetPosition().GetY() >= 0 && mPlayer->GetPosition().GetY() < this->mNumCols)
+	{
+		return true;
+	}
+	else
+	{
+		mPlayer->DecreaseLives();
+		mPlayer->SetPosition(0,0);
+	}
+	return false;
 }
 
 void Dungeon::PrintRooms()
@@ -48,6 +60,6 @@ void Dungeon::PrintRooms()
 
 std::ostream & operator<<(std::ostream & is, Point2D & point)
 {			
-	is << point.GetX() << point.GetY();
+	is << "<" << point.GetX() << "," << point.GetY() << ">";
 	return is;
 }
