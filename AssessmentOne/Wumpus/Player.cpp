@@ -1,10 +1,9 @@
 #include<iostream>
 #include"Player.h"
-#include"Point2D.h"
 
 Player::Player()
 {
-	mLives = 3;
+	mLives = 1;
 	*mName = "little Billy";
 	mGender = true;
 	mPos = new Point2D(0,0);
@@ -12,10 +11,10 @@ Player::Player()
 
 Player::Player(char * name, bool gender)
 {
-	mLives = 3;
+	mLives = 1;
 	*mName = name;
 	mGender = gender;
-	mPos = new Point2D(6,0);
+	mPos = new Point2D(0,0);
 }
 
 void Player::MovePlayer(char direction)
@@ -33,6 +32,16 @@ void Player::MovePlayer(char direction)
 void Player::SetPosition(int x, int y)
 {
 	mPos = new Point2D(x, y);
+}
+
+void Player::DecramentLives()
+{
+	mLives--;
+}
+
+int Player::Lives()
+{
+	return mLives;
 }
 
 Point2D Player::GetPosition()

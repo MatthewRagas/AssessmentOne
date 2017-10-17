@@ -13,5 +13,7 @@ public:
 	Player(char* name, bool gender);
 	void MovePlayer(char direction);
 	void SetPosition(int x, int y);
+	void DecramentLives();
+	int Lives();
 	Point2D GetPosition();
 };
