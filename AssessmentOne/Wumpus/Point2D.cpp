@@ -51,3 +51,10 @@ void Point2D::PrintPoint()
 {
 	std::cout << "Current point: " << mX << ", " << mY << std::endl;
 }
+
+bool Point2D::operator ==(Point2D & other)
+{
+	if (mX == other.mX && mY == other.mY)
+		return true;
+	return false;
+}

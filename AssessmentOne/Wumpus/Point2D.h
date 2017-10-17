@@ -14,5 +14,5 @@ public:
 	int GetX();
 	int GetY();
 	void PrintPoint();
-
+	bool Point2D::operator ==(Point2D & other);
 };
