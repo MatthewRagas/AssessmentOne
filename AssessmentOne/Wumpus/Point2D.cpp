@@ -7,7 +7,7 @@ Point2D::Point2D()
 	mY = 2;
 }
 
-Point2D::Point2D(float x, float y)
+Point2D::Point2D(int x, int y)
 {
 	mX = x;
 	mY = y;
@@ -29,7 +29,7 @@ Point2D Point2D::operator-(const Point2D & other)
 	return temp;
 }
 
-Point2D Point2D::operator*(float other)
+Point2D Point2D::operator*(int other)
 {
 	Point2D temp;
 	temp.mX = mX * other;
@@ -37,12 +37,12 @@ Point2D Point2D::operator*(float other)
 	return temp;
 }
 
-float Point2D::GetX()
+int Point2D::GetX()
 {
 	return mX;
 }
 
-float Point2D::GetY()
+int Point2D::GetY()
 {
 	return mY;
 }

@@ -14,7 +14,7 @@ PittyWumpus::PittyWumpus(Point2D * pos)
 	mPos = pos;
 }
 
-void PittyWumpus::SetPosition(float x, float y)
+void PittyWumpus::SetPosition(int x, int y)
 {
 	mPos = new Point2D(x, y);
 }

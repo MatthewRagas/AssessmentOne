@@ -8,6 +8,6 @@ class PittyWumpus
 public:
 	PittyWumpus();
 	PittyWumpus(Point2D* pos);
-	void SetPosition(float x, float y);
+	void SetPosition(int x, int y);
 	Point2D GetPosition();
 };

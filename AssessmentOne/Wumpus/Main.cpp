@@ -18,12 +18,18 @@ int main()
 	Point2D* rooms = new Point2D();
 	Dungeon cave(9,9, billy);
 	
-	PittyWumpus* beast[9];
-	for (int i = 0; i < 9; i++)
+	PittyWumpus beast[4];//code for setting the wumpi to the grid
+	for (int i = 0; i < 4; i++)
 	{
-		beast[i]->SetPosition(rand() % 7, rand() % 7);
-		if((i > 0) && &beast[i]->GetPosition() == &beast[i - 1]->GetPosition())
-
+		beast[i].SetPosition(rand() % 7, rand() % 7);
+		if (i > 0)
+		{
+			if ((beast[i].GetPosition().GetX() == beast[i - 1].GetPosition().GetX()) &&
+				(beast[i].GetPosition().GetY() == beast[i - 1].GetPosition().GetY()))
+			{
+				i--;
+			}
+		}
 	}
 	
 	//-------------------------------Game introduction---------------------------------
@@ -55,7 +61,7 @@ int main()
 	cout << "If you come to a room that is near a wumpus, the game will warn you with\n"; 
 	cout << "'You smell something foul'.\n";
 	cout << "If you come near a pit the game will warn you with\n"; 
-	cout << "'you feel a warm breez'.\n";
+	cout << "'you feel a warm breeze'.\n";
 	cout << "May the odds be ever in your favor " << name << "!\n";
 	system("pause");
 	system("CLS");
@@ -73,16 +79,24 @@ int main()
 		cin >> input;
 		billy->MovePlayer(input);
 		cave.CheckPlayerPosition();
-		for (int i = 0; i < 9; i++)
+		for (int i = 0; i < 4; i += 2)
 		{
-			if (billy->GetPosition().GetX() - beast[i]->GetPosition().GetX() == 1)
-			{
-
+			if ((billy->GetPosition().GetX() - beast[i].GetPosition().GetX() == 1 || billy->GetPosition().GetX() - beast[i].GetPosition().GetX() == -1) &&
+				(billy->GetPosition().GetY() - beast[i].GetPosition().GetY() == 1 || billy->GetPosition().GetY() - beast[i].GetPosition().GetY() == -1))
+			{//checks if the player is near a wumpus.
+				cout << "You smell something foul.\n";
 			}
+		}
+		for (int i = 1; i < 4; i += 2)
+		{//checks if the player is near a pit.
+			if ((billy->GetPosition().GetX() - beast[i].GetPosition().GetX() == 1 || billy->GetPosition().GetX() - beast[i].GetPosition().GetX() == -1) &&
+				(billy->GetPosition().GetY() - beast[i].GetPosition().GetY() == 1 || billy->GetPosition().GetY() - beast[i].GetPosition().GetY() == -1))
+				{
+					cout << "You feel a warm breeze.\n";
+				}
 		}
 		
 	}
-	
 
 
 	system("pause");

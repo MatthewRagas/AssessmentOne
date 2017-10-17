@@ -2,17 +2,17 @@
 
 class Point2D
 {
-	float mX;
-	float mY;
+	int mX;
+	int mY;
 
 public:
 	Point2D();
-	Point2D(float x, float y);
+	Point2D(int x, int y);
 	Point2D operator + (const Point2D & other);
 	Point2D operator - (const Point2D & other);
-	Point2D operator * (float other);
-	float GetX();
-	float GetY();
+	Point2D operator * (int other);
+	int GetX();
+	int GetY();
 	void PrintPoint();
 
 };
