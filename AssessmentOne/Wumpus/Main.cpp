@@ -10,14 +10,16 @@ int main()
 	srand(time(NULL));
 	char input;
 	MyString name;	
-	Player* treasure = new Player();
+	Player* treasure = new Player(5,6);
 	Dungeon cave;
 	//-------------------------------Game introduction---------------------------------
-	cout << "Welcome to Wumpus World!" << endl;
+	cout << "\n";
+	cout << "                         Welcome to Wumpus World!" << endl;
+	cout << "\n";
 	cout << "What you are looking at is the size of the dungeon you will be exploring.\n";
 	cout << "You will start in the room marked <0,0>.\n";
 	system("pause");
-	
+	system("CLS");
 	cout << "Currently your chracter's name is little Billy.\n" << "If you wish to change it, input the name now.\n"
 		<< "If you do not wish to change it type 'NO'.\n"
 		<< endl;
@@ -49,7 +51,8 @@ int main()
 	cout << "keep in mind that you start at <0,0>, the top left of the grid.\n";
 	cout << "So going up or left on your first move will\n";
 	cout << "cause you to fall off the map and lose a life. Oh yea don't fall off the map\n";
-	cout << "either for reasons recently revealed. You have 3 lives in total.\n";
+	cout << "either for reasons recently revealed. Anytime you die you lose a life, obviously.\n";
+	cout << "You have 3 lives in total.\n";
 	system("pause");
 	//---------------------------------Game Loop------------------------------------------	
 	system("CLS");
@@ -59,20 +62,28 @@ int main()
 	while (cave.GetPlayer().Lives() > 0)
 	{
 		system("CLS");
-		
-		
 		while (p == 1)
 		{
 			cout << "You are now free to move about the cave.\n";
+			cave.CheckPlayerPosition('\0');
 			p++;
 		}
 		cin >> input;
-		
+		if (cave.GetPlayer().GetPosition() == treasure->GetPosition())
+		{
+			cout << "You found the treasure!\n                 ========YOU WIN!========\n";
+			break;
+		}
+		else if ((cave.GetPlayer().GetPosition().GetX() - treasure->GetPosition().GetX() == 0) &&
+			(cave.GetPlayer().GetPosition().GetY() - treasure->GetPosition().GetY() == 1 ||
+				cave.GetPlayer().GetPosition().GetY() - treasure->GetPosition().GetY() == -1))
+		{
+			cout << "You see a dim light!\n";
+		}	
 		cave.CheckPlayerPosition(input);
-		
 		system("pause");
 	}
-	cout << "You are out of lives.\n                ....GAME OVER....\n";
-	system("CLS");
+	if(cave.GetPlayer().Lives() <= 0)
+		cout << "You are out of lives.\n                ....GAME OVER....\n";
 	system("pause");
 }
