@@ -10,7 +10,7 @@ class Player
 
 public:
 	Player();
-	Player(char* name, bool gender);
+	Player(int x, int y);
 	void MovePlayer(char direction);
 	void SetPosition(int x, int y);
 	void DecramentLives();

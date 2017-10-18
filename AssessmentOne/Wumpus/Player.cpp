@@ -3,18 +3,17 @@
 
 Player::Player()
 {
-	mLives = 1;
+	mLives = 3;
 	*mName = "little Billy";
 	mGender = true;
 	mPos = new Point2D(0,0);
 }
 
-Player::Player(char * name, bool gender)
+Player::Player(int x, int y)
 {
-	mLives = 1;
-	*mName = name;
-	mGender = gender;
-	mPos = new Point2D(0,0);
+	mLives = 3;
+	*mName = "little Billy";
+	mPos = new Point2D(x,y);
 }
 
 void Player::MovePlayer(char direction)
