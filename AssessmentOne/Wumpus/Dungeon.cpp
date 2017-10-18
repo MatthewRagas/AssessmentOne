@@ -59,6 +59,11 @@ Dungeon::Dungeon(int rows, int cols, Player* player)
 			{
 				i--;
 			}
+			else if (((mBeast[i].GetPosition().GetX() == 5) && (mBeast[i].GetPosition().GetY() == 6)) &&
+				       (mBeast[i].GetPosition().GetX() == 0) && (mBeast[i].GetPosition().GetY() == 0))
+			{
+				i--;
+			}
 		}
 	}
 	GenRooms();
@@ -104,6 +109,7 @@ bool Dungeon::CheckPlayerPosition(char input)
 		std::cout << "-1 life.\n";
 		mPlayer->SetPosition(0, 0);
 		mPlayer->DecramentLives();
+		 
 	}
 	else if (mPlayer->GetPosition() == mBeast[1].GetPosition())
 	{
@@ -111,6 +117,7 @@ bool Dungeon::CheckPlayerPosition(char input)
 		std::cout << "-1 life.\n";
 		mPlayer->SetPosition(0, 0);
 		mPlayer->DecramentLives();
+		 
 	}
 	else if (mPlayer->GetPosition() == mBeast[2].GetPosition())
 	{
@@ -118,6 +125,7 @@ bool Dungeon::CheckPlayerPosition(char input)
 		std::cout << "-1 life.\n";
 		mPlayer->SetPosition(0, 0);
 		mPlayer->DecramentLives();
+		 
 	}
 	else if (mPlayer->GetPosition() == mBeast[3].GetPosition())
 	{
@@ -126,8 +134,8 @@ bool Dungeon::CheckPlayerPosition(char input)
 		mPlayer->SetPosition(0, 0);
 		mPlayer->DecramentLives();
 	}
-	else if (mPlayer->GetPosition().GetX() >= 0 && mPlayer->GetPosition().GetX() < mNumRows &&
-		mPlayer->GetPosition().GetY() >= 0 && mPlayer->GetPosition().GetY() < mNumCols)
+	else if ((mPlayer->GetPosition().GetX() >= 0 && mPlayer->GetPosition().GetX() < mNumRows) &&
+		(mPlayer->GetPosition().GetY() >= 0 && mPlayer->GetPosition().GetY() < mNumCols))
 	{
 		return true;
 	}
